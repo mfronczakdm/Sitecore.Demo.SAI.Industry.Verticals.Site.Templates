@@ -37,6 +37,11 @@ const nextConfig = {
         hostname: 'xmc-*.**',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'retail-verticals*.**',
+        port: '',
+      },
     ],
   },
 

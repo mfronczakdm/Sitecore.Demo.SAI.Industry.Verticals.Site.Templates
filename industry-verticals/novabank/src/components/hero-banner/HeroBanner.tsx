@@ -174,7 +174,7 @@ export const Upper30 = ({ params, fields, rendering }: HeroBannerProps) => {
   const searchBarPlaceholderKey = `hero-banner-search-bar-${params.DynamicPlaceholderId}`;
 
   return (
-    <div className="max-h-[400px] overflow-hidden">
+    <div className="w-full max-h-[400px] overflow-hidden">
       <HeroBannerCommon params={params} fields={fields} rendering={rendering}>
         {/* Content Container */}
         <div className="relative w-full">
