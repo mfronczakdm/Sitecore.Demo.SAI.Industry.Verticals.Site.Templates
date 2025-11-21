@@ -1,0 +1,37 @@
+{
+  "renderingHosts": {
+    "nextjsstarter": {
+      "path": "./industry-verticals/retail",
+      "nodeVersion": "22.11.0",
+      "jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
+      "enabled": true,
+      "type": "sxa",
+      "buildCommand": "build",
+      "runCommand": "next:start"
+    }
+  },
+  "deployItems": {
+    "modules": ["Project.retail"]
+  },
+  "postActions": {
+    "actions": {
+      "scsModules": {
+        "modules": ["Project.Retail-Media", "Project.Retail-Content"]
+      },
+      "warmUpCm": {
+        "urls": [
+          "/sitecore/shell",
+          "/sitecore/shell/Applications/Content%20Editor.aspx?sc_bw=1",
+          "/sitecore/client/Applications/Launchpad"
+        ]
+      },
+      "populateSchema": {
+        "indexNames": []
+      },
+      "reindex": {
+        "indexNames": []
+      }
+    }
+  },
+  "authoringPath": "./authoring"
+}
