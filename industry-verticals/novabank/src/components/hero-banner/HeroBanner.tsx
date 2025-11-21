@@ -174,13 +174,13 @@ export const Upper30 = ({ params, fields, rendering }: HeroBannerProps) => {
   const searchBarPlaceholderKey = `hero-banner-search-bar-${params.DynamicPlaceholderId}`;
 
   return (
-    <div className="w-full max-h-[400px] overflow-hidden">
+    <div className="h-[400px] w-full overflow-hidden">
       <HeroBannerCommon params={params} fields={fields} rendering={rendering}>
         {/* Content Container */}
-        <div className="relative w-full">
-          <div className="container mx-auto flex min-h-238 justify-center px-4">
+        <div className="relative h-full w-full">
+          <div className="container mx-auto flex h-full justify-center px-4">
             <div
-              className={`flex flex-col items-center py-10 lg:py-44 ${reverseLayout ? 'justify-end' : 'justify-start'}`}
+              className={`flex flex-col items-center py-10 ${reverseLayout ? 'justify-end' : 'justify-start'}`}
             >
               {/* Title */}
               <h1 className="text-center text-5xl leading-[110%] font-bold capitalize md:text-7xl md:leading-[130%] xl:text-[80px]">
