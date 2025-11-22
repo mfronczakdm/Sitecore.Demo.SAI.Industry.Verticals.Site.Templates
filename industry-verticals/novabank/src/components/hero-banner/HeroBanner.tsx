@@ -171,6 +171,7 @@ export const Upper30 = ({ params, fields, rendering }: HeroBannerProps) => {
   const hideAccentLine = isParamEnabled(params.HideAccentLine);
   const withPlaceholder = isParamEnabled(params.WithPlaceholder);
   const reverseLayout = isParamEnabled(params.ReverseLayout);
+  const DarkImage = isParamEnabled(params.DarkImage);
   const searchBarPlaceholderKey = `hero-banner-search-bar-${params.DynamicPlaceholderId}`;
 
   return (
@@ -183,13 +184,17 @@ export const Upper30 = ({ params, fields, rendering }: HeroBannerProps) => {
               className={`flex flex-col items-center py-10 ${reverseLayout ? 'justify-end' : 'justify-start'}`}
             >
               {/* Title */}
-              <h1 className="text-center text-5xl leading-[110%] font-bold capitalize md:text-7xl md:leading-[130%] xl:text-[80px]">
+              <h1
+                className={`text-center text-5xl leading-[110%] font-bold capitalize md:text-7xl md:leading-[130%] xl:text-[80px] ${DarkImage ? 'text-white' : ''}`}
+              >
                 <ContentSdkText field={fields.Title} />
                 {!hideAccentLine && <AccentLine className="mx-auto !h-5 w-[9ch]" />}
               </h1>
 
               {/* Description */}
-              <div className="mt-7 text-xl md:text-2xl">
+              <div
+                className={`mt-7 text-xl md:text-2xl ${DarkImage ? 'text-white [&_*]:!text-white' : ''}`}
+              >
                 <ContentSdkRichText field={fields.Description} className="text-center" />
               </div>
 
@@ -198,7 +203,9 @@ export const Upper30 = ({ params, fields, rendering }: HeroBannerProps) => {
                 {withPlaceholder ? (
                   <Placeholder name={searchBarPlaceholderKey} rendering={rendering} />
                 ) : (
-                  <ExploreLink linkText={fields.CtaLink} />
+                  <div className={DarkImage ? '[&_*]:!border-white [&_*]:!text-white' : ''}>
+                    <ExploreLink linkText={fields.CtaLink} />
+                  </div>
                 )}
               </div>
             </div>

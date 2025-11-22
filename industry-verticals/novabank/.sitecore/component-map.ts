@@ -24,10 +24,12 @@ import * as Navigation from 'src/components/navigation/Navigation';
 import * as LinkList from 'src/components/link-list/LinkList';
 import * as LanguageSwitcher from 'src/components/language-switcher/LanguageSwitcher';
 import * as Image from 'src/components/image/Image';
+import * as HeroBannerForm from 'src/components/hero-banner/HeroBannerForm';
 import * as HeroBanner from 'src/components/hero-banner/HeroBanner';
 import * as Header from 'src/components/header/Header';
 import * as Footer from 'src/components/footer/Footer';
 import * as Features from 'src/components/features/Features';
+import * as FourColumnCta from 'src/components/cta/FourColumnCta';
 import * as ContentBlock from 'src/components/content-block/ContentBlock';
 import * as Container from 'src/components/container/Container';
 import * as ContactForm from 'src/components/contact-form/ContactForm';
@@ -62,10 +64,12 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['LinkList', { ...LinkList }],
   ['LanguageSwitcher', { ...LanguageSwitcher, componentType: 'client' }],
   ['Image', { ...Image }],
+  ['HeroBannerForm', { ...HeroBannerForm }],
   ['HeroBanner', { ...HeroBanner }],
   ['Header', { ...Header }],
   ['Footer', { ...Footer }],
   ['Features', { ...Features }],
+  ['FourColumnCta', { ...FourColumnCta }],
   ['ContentBlock', { ...ContentBlock }],
   ['Container', { ...Container }],
   ['ContactForm', { ...ContactForm, componentType: 'client' }],
