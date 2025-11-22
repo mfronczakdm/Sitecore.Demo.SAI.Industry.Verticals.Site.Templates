@@ -57,6 +57,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 's
 import { localeOptions } from '@/constants/localeOptions';
 import { ExploreLink } from 'src/components/non-sitecore/ExploreLink';
 import { generateIndexes } from '@/helpers/generateIndexes';
+import useVisibility from 'src/hooks/useVisibility';
 import Head from 'next/head';
 import client from 'lib/sitecore-client';
 import Image_5d8ce56058442d94361877e28c501c951a554a6a from 'next/image';
@@ -447,6 +448,12 @@ const importMap = [
     module: '@/helpers/generateIndexes',
     exports: [
       { name: 'generateIndexes', value: generateIndexes },
+    ]
+  },
+  {
+    module: 'src/hooks/useVisibility',
+    exports: [
+      { name: 'default', value: useVisibility },
     ]
   },
   {

@@ -80,7 +80,7 @@ export const Default = (props: FeaturesProps) => {
                   <Text field={description} />
                 </div>
                 <div>
-                  <Link field={link} className="arrow-btn" />
+                  <Link field={link} className="main-btn" />
                 </div>
               </div>
             );
@@ -215,27 +215,67 @@ export const FourColGrid = (props: FeaturesProps) => {
   );
 };
 
+export const FiveColGrid = (props: FeaturesProps) => {
+  // results of the graphql
+  const results = props.fields.data.datasource.children.results;
+
+  return (
+    <FeatureWrapper props={props}>
+      <div className="container grid grid-cols-1 gap-20 py-24 md:grid-cols-2 lg:grid-cols-5 lg:gap-10">
+        {results.map((item, index) => {
+          const title = item.featureTitle.jsonValue;
+          const description = item.featureDescription.jsonValue;
+          const image = item.featureImage.jsonValue;
+          const link = item.featureLink.jsonValue;
+          return (
+            <div className="flex flex-col items-center" key={index}>
+              {/* Image */}
+              <div className="mb-5 flex items-center justify-center rounded-full">
+                <Image field={image} />
+              </div>
+              {/* Title and Description */}
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-3 text-xl leading-9 font-bold">
+                  <Text className="text-foreground" field={title} />
+                </div>
+                <Link field={link}>
+                  <div className="text-background-muted-light leading-8">
+                    <Text field={description} />
+                  </div>
+                </Link>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </FeatureWrapper>
+  );
+};
+
 export const ImageCardGrid = (props: FeaturesProps) => {
   const results = props.fields.data.datasource.children.results;
 
   return (
     <FeatureWrapper props={props}>
-      <div className="outline-non container grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+      <div className="outline-non container grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5">
         {results.map((item, index) => {
           const title = item.featureTitle.jsonValue;
           const description = item.featureDescription.jsonValue;
           const image = item.featureImage.jsonValue;
+          const link = item.featureLink.jsonValue;
           return (
-            <div key={index}>
-              <div className="mb-7 aspect-4/3 w-full overflow-hidden rounded-lg bg-white">
-                <Image field={image} className="h-full w-full object-cover" />
+            <div key={index} className="flex flex-col items-center">
+              <div className="mb-7 flex items-center justify-center w-full">
+                <Link field={link}>
+                  <Image field={image} className="max-w-full max-h-full object-contain" />
+                </Link>
               </div>
 
-              <h6>
+              <h6 className="text-center">
                 <Text field={title} />
               </h6>
 
-              <p className="text-foreground-muted mt-1 text-lg">
+              <p className="text-foreground-muted mt-1 text-lg text-center">
                 <Text field={description} />
               </p>
             </div>
