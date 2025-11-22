@@ -48,7 +48,7 @@ const HeroBannerCommon = ({
   }
 
   return (
-    <div className={`component hero-banner ${styles} relative flex items-center`} id={id}>
+    <div className={`component hero-banner ${styles} relative flex h-full items-center`} id={id}>
       {/* Background Media */}
       <div className="absolute inset-0 z-0">
         {!isPageEditing && fields?.Video?.value?.src ? (
@@ -189,124 +189,132 @@ export const Upper30 = ({ params, fields, rendering }: HeroBannerProps) => {
   const searchBarPlaceholderKey = `hero-banner-search-bar-${params.DynamicPlaceholderId}`;
 
   return (
-    <div className="h-[450px] w-full overflow-hidden">
-      <HeroBannerCommon params={params} fields={fields} rendering={rendering}>
-        {/* Content Container */}
-        <div className="relative z-10 h-full w-full overflow-visible">
-          <div className="container mx-auto flex h-full items-center px-4 py-6">
-            <div className="flex w-full items-center gap-8">
-              {/* Left side - 70% - Text content */}
-              <div className="w-full lg:w-[70%]">
-                <div className="flex max-w-182 flex-col">
-                  {/* Title */}
-                  <h1
-                    className={`text-left text-5xl leading-[110%] font-bold capitalize md:text-7xl md:leading-[130%] xl:text-[80px] ${DarkImage ? 'text-white' : ''}`}
-                  >
-                    <ContentSdkText field={fields.Title} />
-                    {!hideAccentLine && <AccentLine className="!h-5 w-[9ch]" />}
-                  </h1>
+    <div className="h-[450px] w-full overflow-hidden md:h-[450px] lg:h-[500px]">
+      <div className="h-full w-full">
+        <HeroBannerCommon params={params} fields={fields} rendering={rendering}>
+          {/* Content Container */}
+          <div className="relative z-10 h-full w-full">
+            <div className="container mx-auto flex h-full items-center px-4 py-6">
+              <div className="flex w-full items-center gap-8">
+                {/* Left side - 70% - Text content */}
+                <div className="w-full lg:w-[70%]">
+                  <div className="flex max-w-182 flex-col">
+                    {/* Title */}
+                    <h1
+                      className={`text-left text-5xl leading-[110%] font-bold capitalize md:text-7xl md:leading-[130%] xl:text-[80px] ${DarkImage ? 'text-white' : ''}`}
+                    >
+                      <ContentSdkText field={fields.Title} />
+                      {!hideAccentLine && <AccentLine className="!h-5 w-[9ch]" />}
+                    </h1>
 
-                  {/* Description */}
-                  <div
-                    className={`mt-7 text-xl md:text-2xl ${DarkImage ? 'text-white [&_*]:!text-white' : ''}`}
-                  >
-                    <ContentSdkRichText field={fields.Description} className="text-left" />
-                  </div>
+                    {/* Description */}
+                    <div
+                      className={`mt-7 text-xl md:text-2xl ${DarkImage ? 'text-white [&_*]:!text-white' : ''}`}
+                    >
+                      <ContentSdkRichText field={fields.Description} className="text-left" />
+                    </div>
 
-                  {/* CTA Link or Placeholder */}
-                  <div className="mt-6 flex w-full flex-shrink-0 justify-start">
-                    {withPlaceholder ? (
-                      <Placeholder name={searchBarPlaceholderKey} rendering={rendering} />
-                    ) : (
-                      <div className={DarkImage ? '[&_*]:!border-white [&_*]:!text-white' : ''}>
-                        <ExploreLink linkText={fields.CtaLink} />
-                      </div>
-                    )}
+                    {/* CTA Link or Placeholder */}
+                    <div className="mt-6 flex w-full flex-shrink-0 justify-start">
+                      {withPlaceholder ? (
+                        <Placeholder name={searchBarPlaceholderKey} rendering={rendering} />
+                      ) : (
+                        <div className={DarkImage ? '[&_*]:!border-white [&_*]:!text-white' : ''}>
+                          <ExploreLink linkText={fields.CtaLink} />
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Right side - 30% - Login Form */}
-              <div className="w-full lg:w-[30%]">
-                <div
-                  className="rounded-lg p-4"
-                  style={{ backgroundColor: 'var(--color-background)' }}
-                >
-                  <h2 className="mb-4 text-xl font-bold">Welcome</h2>
-                  <form className="space-y-3">
-                    <div>
-                      <label htmlFor="username-upper30" className="mb-1 block text-sm font-medium">
-                        Username
-                      </label>
-                      <input
-                        type="text"
-                        id="username-upper30"
-                        name="username"
-                        className="w-full rounded-md border px-3 py-1.5 text-sm"
-                        style={{
-                          borderColor: 'var(--color-border)',
-                          backgroundColor: 'var(--color-background)',
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="password-upper30" className="mb-1 block text-sm font-medium">
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        id="password-upper30"
-                        name="password"
-                        className="w-full rounded-md border px-3 py-1.5 text-sm"
-                        style={{
-                          borderColor: 'var(--color-border)',
-                          backgroundColor: 'var(--color-background)',
-                        }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center">
-                        <input
-                          type="checkbox"
-                          id="remember-upper30"
-                          name="remember"
-                          className="mr-2"
-                        />
-                        <label htmlFor="remember-upper30" className="text-sm">
-                          Remember me
+                {/* Right side - 30% - Login Form */}
+                <div className="w-full lg:w-[30%]">
+                  <div
+                    className="rounded-lg p-4"
+                    style={{ backgroundColor: 'var(--color-background)' }}
+                  >
+                    <h2 className="mb-4 text-xl font-bold">Welcome</h2>
+                    <form className="space-y-3">
+                      <div>
+                        <label
+                          htmlFor="username-upper30"
+                          className="mb-1 block text-sm font-medium"
+                        >
+                          Username
                         </label>
+                        <input
+                          type="text"
+                          id="username-upper30"
+                          name="username"
+                          className="w-full rounded-md border px-3 py-1.5 text-sm"
+                          style={{
+                            borderColor: 'var(--color-border)',
+                            backgroundColor: 'var(--color-background)',
+                          }}
+                        />
                       </div>
-                      <a href="#" className="text-sm" style={{ color: 'var(--color-accent)' }}>
-                        Forgot password and reset
-                      </a>
-                    </div>
-                    <button
-                      type="submit"
-                      className="w-full rounded-md px-4 py-2 text-sm font-medium"
-                      style={{
-                        backgroundColor: 'var(--color-accent)',
-                        color: 'white',
-                      }}
-                    >
-                      Sign In
-                    </button>
-                    <div className="text-center">
-                      <span className="text-sm">Not enrolled? </span>
-                      <a
-                        href="#"
-                        className="text-sm font-medium"
-                        style={{ color: 'var(--color-accent)' }}
+                      <div>
+                        <label
+                          htmlFor="password-upper30"
+                          className="mb-1 block text-sm font-medium"
+                        >
+                          Password
+                        </label>
+                        <input
+                          type="password"
+                          id="password-upper30"
+                          name="password"
+                          className="w-full rounded-md border px-3 py-1.5 text-sm"
+                          style={{
+                            borderColor: 'var(--color-border)',
+                            backgroundColor: 'var(--color-background)',
+                          }}
+                        />
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <input
+                            type="checkbox"
+                            id="remember-upper30"
+                            name="remember"
+                            className="mr-2"
+                          />
+                          <label htmlFor="remember-upper30" className="text-sm">
+                            Remember me
+                          </label>
+                        </div>
+                        <a href="#" className="text-sm" style={{ color: 'var(--color-accent)' }}>
+                          Forgot password and reset
+                        </a>
+                      </div>
+                      <button
+                        type="submit"
+                        className="w-full rounded-md px-4 py-2 text-sm font-medium"
+                        style={{
+                          backgroundColor: 'var(--color-accent)',
+                          color: 'white',
+                        }}
                       >
-                        Sign up now
-                      </a>
-                    </div>
-                  </form>
+                        Sign In
+                      </button>
+                      <div className="text-center">
+                        <span className="text-sm">Not enrolled? </span>
+                        <a
+                          href="#"
+                          className="text-sm font-medium"
+                          style={{ color: 'var(--color-accent)' }}
+                        >
+                          Sign up now
+                        </a>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </HeroBannerCommon>
+        </HeroBannerCommon>
+      </div>
     </div>
   );
 };

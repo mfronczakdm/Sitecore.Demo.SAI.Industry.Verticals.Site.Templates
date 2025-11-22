@@ -221,7 +221,7 @@ export const FiveColGrid = (props: FeaturesProps) => {
 
   return (
     <FeatureWrapper props={props}>
-      <div className="container grid grid-cols-1 gap-20 py-24 md:grid-cols-2 lg:grid-cols-5 lg:gap-10">
+      <div className="container grid grid-cols-1 gap-8 py-8 md:grid-cols-2 lg:grid-cols-5 lg:gap-6">
         {results.map((item, index) => {
           const title = item.featureTitle.jsonValue;
           const image = item.featureImage.jsonValue;
