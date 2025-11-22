@@ -265,9 +265,9 @@ export const ImageCardGrid = (props: FeaturesProps) => {
           const link = item.featureLink.jsonValue;
           return (
             <div key={index} className="flex flex-col items-center">
-              <div className="mb-7 flex items-center justify-center w-full">
+              <div className="mb-7 flex w-full items-center justify-center">
                 <Link field={link}>
-                  <Image field={image} className="max-w-full max-h-full object-contain" />
+                  <Image field={image} className="max-h-full max-w-full object-contain" />
                 </Link>
               </div>
 
@@ -275,7 +275,7 @@ export const ImageCardGrid = (props: FeaturesProps) => {
                 <Text field={title} />
               </h6>
 
-              <p className="text-foreground-muted mt-1 text-lg text-center">
+              <p className="text-foreground-muted mt-1 text-center text-lg">
                 <Text field={description} />
               </p>
             </div>
