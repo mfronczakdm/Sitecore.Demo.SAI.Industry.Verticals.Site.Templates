@@ -197,7 +197,7 @@ export const Upper30 = ({ params, fields, rendering }: HeroBannerProps) => {
             <div className="flex w-full items-center gap-8">
               {/* Left side - 70% - Text content */}
               <div className="w-full lg:w-[70%]">
-                <div className="max-w-182 flex flex-col">
+                <div className="flex max-w-182 flex-col">
                   {/* Title */}
                   <h1
                     className={`text-left text-5xl leading-[110%] font-bold capitalize md:text-7xl md:leading-[130%] xl:text-[80px] ${DarkImage ? 'text-white' : ''}`}
@@ -214,7 +214,7 @@ export const Upper30 = ({ params, fields, rendering }: HeroBannerProps) => {
                   </div>
 
                   {/* CTA Link or Placeholder */}
-                  <div className="mt-6 flex w-full justify-start flex-shrink-0">
+                  <div className="mt-6 flex w-full flex-shrink-0 justify-start">
                     {withPlaceholder ? (
                       <Placeholder name={searchBarPlaceholderKey} rendering={rendering} />
                     ) : (
@@ -276,11 +276,7 @@ export const Upper30 = ({ params, fields, rendering }: HeroBannerProps) => {
                           Remember me
                         </label>
                       </div>
-                      <a
-                        href="#"
-                        className="text-sm"
-                        style={{ color: 'var(--color-accent)' }}
-                      >
+                      <a href="#" className="text-sm" style={{ color: 'var(--color-accent)' }}>
                         Forgot password and reset
                       </a>
                     </div>
