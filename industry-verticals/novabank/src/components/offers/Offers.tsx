@@ -45,7 +45,7 @@ export const Default = (props: OfferProps) => {
 
   return (
     <div
-      className={`component offers ${styles} ${darkTheme ? 'bg-background-accent text-white' : ''}`}
+      className={`component offers ${styles} ${darkTheme ? 'bg-background-accent text-white' : ''} pb-6`}
       id={id}
     >
       <div className="mx-auto flex w-full max-w-3xl items-center justify-center gap-5 p-2">
