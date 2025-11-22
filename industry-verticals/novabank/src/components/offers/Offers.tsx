@@ -31,6 +31,7 @@ export const Default = (props: OfferProps) => {
   const datasource = props.fields?.Offers || [];
   const styles = `${props.params.styles || ''}`.trim();
   const autoPlay = isParamEnabled(props.params.Autoplay);
+  const darkTheme = isParamEnabled(props.params.DarkTheme);
 
   if (!datasource.length) {
     return page.mode.isEditing ? (
@@ -43,10 +44,13 @@ export const Default = (props: OfferProps) => {
   }
 
   return (
-    <div className={`component offers ${styles}`} id={id}>
+    <div
+      className={`component offers ${styles} ${darkTheme ? 'bg-background-accent text-white' : ''}`}
+      id={id}
+    >
       <div className="mx-auto flex w-full max-w-3xl items-center justify-center gap-5 p-2">
         <button
-          className={`swiper-btn-prev-${uid}`}
+          className={`swiper-btn-prev-${uid} ${darkTheme ? 'text-white' : ''}`}
           name="previous-offer"
           aria-label="Previous offer"
         >
@@ -83,7 +87,11 @@ export const Default = (props: OfferProps) => {
           ))}
         </Swiper>
 
-        <button className={`swiper-btn-next-${uid}`} name="next-offer" aria-label="Next offer">
+        <button
+          className={`swiper-btn-next-${uid} ${darkTheme ? 'text-white' : ''}`}
+          name="next-offer"
+          aria-label="Next offer"
+        >
           <ChevronRight />
         </button>
       </div>

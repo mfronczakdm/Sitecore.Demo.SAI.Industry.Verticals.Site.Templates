@@ -189,15 +189,15 @@ export const Upper30 = ({ params, fields, rendering }: HeroBannerProps) => {
   const searchBarPlaceholderKey = `hero-banner-search-bar-${params.DynamicPlaceholderId}`;
 
   return (
-    <div className="h-[400px] w-full overflow-hidden">
+    <div className="h-[450px] w-full overflow-hidden">
       <HeroBannerCommon params={params} fields={fields} rendering={rendering}>
         {/* Content Container */}
-        <div className="relative z-10 h-full w-full">
-          <div className="container mx-auto flex h-full items-center px-4">
-            <div className="flex w-full gap-8">
+        <div className="relative z-10 h-full w-full overflow-visible">
+          <div className="container mx-auto flex h-full items-center px-4 py-6">
+            <div className="flex w-full items-center gap-8">
               {/* Left side - 70% - Text content */}
               <div className="w-full lg:w-[70%]">
-                <div className="max-w-182">
+                <div className="max-w-182 flex flex-col">
                   {/* Title */}
                   <h1
                     className={`text-left text-5xl leading-[110%] font-bold capitalize md:text-7xl md:leading-[130%] xl:text-[80px] ${DarkImage ? 'text-white' : ''}`}
@@ -214,7 +214,7 @@ export const Upper30 = ({ params, fields, rendering }: HeroBannerProps) => {
                   </div>
 
                   {/* CTA Link or Placeholder */}
-                  <div className="mt-6 flex w-full justify-start">
+                  <div className="mt-6 flex w-full justify-start flex-shrink-0">
                     {withPlaceholder ? (
                       <Placeholder name={searchBarPlaceholderKey} rendering={rendering} />
                     ) : (
@@ -229,20 +229,20 @@ export const Upper30 = ({ params, fields, rendering }: HeroBannerProps) => {
               {/* Right side - 30% - Login Form */}
               <div className="w-full lg:w-[30%]">
                 <div
-                  className="rounded-lg p-6"
+                  className="rounded-lg p-4"
                   style={{ backgroundColor: 'var(--color-background)' }}
                 >
-                  <h2 className="mb-6 text-2xl font-bold">Welcome</h2>
-                  <form className="space-y-4">
+                  <h2 className="mb-4 text-xl font-bold">Welcome</h2>
+                  <form className="space-y-3">
                     <div>
-                      <label htmlFor="username-upper30" className="mb-2 block text-sm font-medium">
+                      <label htmlFor="username-upper30" className="mb-1 block text-sm font-medium">
                         Username
                       </label>
                       <input
                         type="text"
                         id="username-upper30"
                         name="username"
-                        className="w-full rounded-md border px-4 py-2"
+                        className="w-full rounded-md border px-3 py-1.5 text-sm"
                         style={{
                           borderColor: 'var(--color-border)',
                           backgroundColor: 'var(--color-background)',
@@ -250,34 +250,43 @@ export const Upper30 = ({ params, fields, rendering }: HeroBannerProps) => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="password-upper30" className="mb-2 block text-sm font-medium">
+                      <label htmlFor="password-upper30" className="mb-1 block text-sm font-medium">
                         Password
                       </label>
                       <input
                         type="password"
                         id="password-upper30"
                         name="password"
-                        className="w-full rounded-md border px-4 py-2"
+                        className="w-full rounded-md border px-3 py-1.5 text-sm"
                         style={{
                           borderColor: 'var(--color-border)',
                           backgroundColor: 'var(--color-background)',
                         }}
                       />
                     </div>
-                    <div className="flex items-center">
-                      <input
-                        type="checkbox"
-                        id="remember-upper30"
-                        name="remember"
-                        className="mr-2"
-                      />
-                      <label htmlFor="remember-upper30" className="text-sm">
-                        Remember me
-                      </label>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <input
+                          type="checkbox"
+                          id="remember-upper30"
+                          name="remember"
+                          className="mr-2"
+                        />
+                        <label htmlFor="remember-upper30" className="text-sm">
+                          Remember me
+                        </label>
+                      </div>
+                      <a
+                        href="#"
+                        className="text-sm"
+                        style={{ color: 'var(--color-accent)' }}
+                      >
+                        Forgot password and reset
+                      </a>
                     </div>
                     <button
                       type="submit"
-                      className="w-full rounded-md px-4 py-2 font-medium"
+                      className="w-full rounded-md px-4 py-2 text-sm font-medium"
                       style={{
                         backgroundColor: 'var(--color-accent)',
                         color: 'white',
@@ -285,6 +294,16 @@ export const Upper30 = ({ params, fields, rendering }: HeroBannerProps) => {
                     >
                       Sign In
                     </button>
+                    <div className="text-center">
+                      <span className="text-sm">Not enrolled? </span>
+                      <a
+                        href="#"
+                        className="text-sm font-medium"
+                        style={{ color: 'var(--color-accent)' }}
+                      >
+                        Sign up now
+                      </a>
+                    </div>
                   </form>
                 </div>
               </div>

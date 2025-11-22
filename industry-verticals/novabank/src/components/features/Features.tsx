@@ -224,23 +224,19 @@ export const FiveColGrid = (props: FeaturesProps) => {
       <div className="container grid grid-cols-1 gap-20 py-24 md:grid-cols-2 lg:grid-cols-5 lg:gap-10">
         {results.map((item, index) => {
           const title = item.featureTitle.jsonValue;
-          const description = item.featureDescription.jsonValue;
           const image = item.featureImage.jsonValue;
           const link = item.featureLink.jsonValue;
           return (
             <div className="flex flex-col items-center" key={index}>
               {/* Image */}
-              <div className="mb-5 flex items-center justify-center rounded-full">
+              <div className="mb-1 flex items-center justify-center rounded-full">
                 <Image field={image} />
               </div>
-              {/* Title and Description */}
+              {/* Title */}
               <div className="flex flex-col items-center text-center">
-                <div className="mb-3 text-xl leading-9 font-bold">
-                  <Text className="text-foreground" field={title} />
-                </div>
                 <Link field={link}>
-                  <div className="text-background-muted-light leading-8">
-                    <Text field={description} />
+                  <div className="text-xl leading-tight font-bold">
+                    <Text className="text-foreground" field={title} />
                   </div>
                 </Link>
               </div>
