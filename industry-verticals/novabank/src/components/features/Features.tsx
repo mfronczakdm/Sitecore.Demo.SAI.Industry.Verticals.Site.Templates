@@ -234,11 +234,17 @@ export const FiveColGrid = (props: FeaturesProps) => {
               </div>
               {/* Title */}
               <div className="flex flex-col items-center text-center">
-                <Link field={link}>
+                {link?.value?.href ? (
+                  <Link field={link}>
+                    <div className="text-xl leading-tight font-bold">
+                      <Text className="text-foreground" field={title} />
+                    </div>
+                  </Link>
+                ) : (
                   <div className="text-xl leading-tight font-bold">
                     <Text className="text-foreground" field={title} />
                   </div>
-                </Link>
+                )}
               </div>
             </div>
           );
