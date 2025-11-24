@@ -287,3 +287,46 @@ export const ImageCardGrid = (props: FeaturesProps) => {
     </FeatureWrapper>
   );
 };
+
+export const ThreeColGrid = (props: FeaturesProps) => {
+  const results = props.fields.data.datasource.children.results;
+
+  return (
+    <FeatureWrapper props={props}>
+      <div className="container grid grid-cols-1 gap-6 py-20 md:grid-cols-2 lg:grid-cols-3">
+        {results.map((item, index) => {
+          const title = item.featureTitle.jsonValue;
+          const description = item.featureDescription.jsonValue;
+          const image = item.featureImage.jsonValue;
+          const link = item.featureLink.jsonValue;
+          return (
+            <div key={index} className="flex h-full flex-col overflow-hidden rounded-lg shadow-md">
+              {/* Header: Dark blue background with title on left and image on right */}
+              <div className="bg-background-accent flex items-center justify-between px-6 py-4">
+                <div className="text-lg font-semibold text-white">
+                  <Text field={title} />
+                </div>
+                {image && (
+                  <div className="flex items-center justify-center">
+                    <Image field={image} className="h-8 w-8 object-contain brightness-0 invert" />
+                  </div>
+                )}
+              </div>
+              {/* Body: White background with description and button */}
+              <div className="bg-background flex flex-1 flex-col gap-4 px-6 py-6">
+                <div className="text-foreground flex-1 text-left leading-7">
+                  <Text field={description} />
+                </div>
+                {link?.value?.href && (
+                  <div className="mt-auto">
+                    <Link field={link} className="main-btn" />
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </FeatureWrapper>
+  );
+};
