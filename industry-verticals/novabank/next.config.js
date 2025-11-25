@@ -42,6 +42,11 @@ const nextConfig = {
         hostname: 'retail-verticals*.**',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'depuy.dev*.**',
+        port: '',
+      },
     ],
   },
 
