@@ -10,12 +10,10 @@ SharedFields:
   Value: 100
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "618aeb3d-7746-4c8c-ba88-475f2c0b77da"
+  Value: "126274c9-fb9f-4991-9881-2db9d3644d8a"
 - ID: "de8257d9-43aa-4eff-a2f4-2e9fbbd20e79"
   Hint: AdditionalChildren
-  Value: |
-    {54F89E61-6008-4130-B6D9-3F4C5FDC447B}
-    {D6CFA4C3-B639-4C22-BFD9-24F71C3F50D7}
+  Value: "{D6CFA4C3-B639-4C22-BFD9-24F71C3F50D7}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{A7F39EA2-9018-4622-891D-CB65627E5AF2}"
@@ -37,11 +35,11 @@ Languages:
         sitecore\neli.kostadinova@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1e2b27d9-9eee-4e61-9075-94d379ba42e8"
+      Value: "64adfb1d-73f2-438b-90db-30bfbd5deadb"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\neli.kostadinova@sitecore.com
+        sitecore\mark.fronczak@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20250916T092501Z
+      Value: 20251121T174739Z
