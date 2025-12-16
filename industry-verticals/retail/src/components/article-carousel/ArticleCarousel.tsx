@@ -17,8 +17,8 @@ import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { Article } from '@/types/article';
 import Link from 'next/link';
-import { isParamEnabled } from '@/helpers/isParamEnabled';
 import { cn } from '@/shadcn/lib/utils';
+import { CommonStyles, LayoutStyles } from '@/types/styleFlags';
 
 interface Fields {
   CarouselTitle: Field<string>;
@@ -38,10 +38,10 @@ export const Default = (props: CarouselProps) => {
   const articles = props.fields?.Articles || [];
   const slidesPerViewByArticleSize = articles.length <= 2 ? 1 : 2;
   const multipleArticles = articles.length > 1;
-  const isReversed = isParamEnabled(props.params.Reversed);
-
+  const isReversed = props?.params?.styles?.includes(LayoutStyles.Reversed);
   const swiperFirstRef = useRef<SwiperClass | null>(null);
   const swiperSecondRef = useRef<SwiperClass | null>(null);
+  const hideAccentLine = props.params.styles?.includes(CommonStyles.HideAccentLine);
 
   const handleNext = () => {
     if (currentIndex < articles.length - 1) {
@@ -83,7 +83,7 @@ export const Default = (props: CarouselProps) => {
           <div className="w-full space-y-5 md:w-1/3">
             <h2 className="inline-block max-w-md">
               <Text field={props.fields.CarouselTitle} />
-              <AccentLine className="w-full max-w-xs" />
+              {!hideAccentLine && <AccentLine className="w-full max-w-xs" />}
             </h2>
 
             <div className="max-w-md">

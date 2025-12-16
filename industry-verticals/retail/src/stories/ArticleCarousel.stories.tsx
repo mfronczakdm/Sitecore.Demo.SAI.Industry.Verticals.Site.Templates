@@ -6,18 +6,21 @@ import {
 } from '../components/article-carousel/ArticleCarousel';
 import { createLinkField, createRichTextField, createTextField } from './helpers/createFields';
 import { createMockArticles } from './helpers/createItems';
-import { boolToSitecoreCheckbox } from './helpers/boolToSitecoreCheckbox';
 import {
   backgroundColorArgTypes,
   BackgroundColorArgs,
   defaultBackgroundColorArgs,
 } from './common/commonControls';
 import { expect, userEvent, within } from 'storybook/test';
+import clsx from 'clsx';
+import { CommonStyles, LayoutStyles } from '@/types/styleFlags';
+import { boolToSitecoreCheckbox } from './helpers/boolToSitecoreCheckbox';
 
 type StoryProps = CarouselProps &
   BackgroundColorArgs & {
     numberOfArticles: number;
     reversed: boolean;
+    hideAccentLine?: boolean;
   };
 
 const meta = {
@@ -43,11 +46,19 @@ const meta = {
         type: 'boolean',
       },
     },
+    hideAccentLine: {
+      name: 'Hide Accent Line',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
   },
   args: {
     numberOfArticles: 5,
     reversed: false,
     ...defaultBackgroundColorArgs,
+    hideAccentLine: false,
   },
 
   tags: ['autodocs'],
@@ -76,13 +87,20 @@ export const Default: Story = {
   render: (args) => {
     const fields = {
       ...baseFields,
+      HideAccentLine: boolToSitecoreCheckbox(args.hideAccentLine),
       Articles: createMockArticles(args.numberOfArticles),
     };
 
+    const articleCarouselStyles = clsx(
+      baseParams.styles,
+      args.BackgroundColor,
+      args.reversed && LayoutStyles.Reversed,
+      args.hideAccentLine && CommonStyles.HideAccentLine
+    );
+
     const params = {
       ...baseParams,
-      styles: `${baseParams.styles} ${args.BackgroundColor}`,
-      Reversed: boolToSitecoreCheckbox(args.reversed),
+      styles: articleCarouselStyles,
     };
 
     return <ArticleCarousel params={params} rendering={baseRendering} fields={fields} />;
