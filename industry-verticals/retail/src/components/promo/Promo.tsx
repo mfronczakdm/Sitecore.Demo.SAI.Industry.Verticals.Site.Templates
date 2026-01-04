@@ -218,6 +218,49 @@ export const WithFullImage = (props: PromoProps): JSX.Element => {
   );
 };
 
+export const ImageRight = (props: PromoProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  // Invert the logic so image is on right by default (opposite of Default)
+  const isPromoReversed = props?.params?.styles?.includes(LayoutStyles.Reversed)
+    ? ''
+    : 'order-last';
+  const showSingleImage = !props?.params?.styles?.includes(PromoFlags.ShowMultipleImages);
+  const withShapes = !props?.params?.styles?.includes(PromoFlags.HidePromoShapes);
+  const withShadows = !props?.params?.styles?.includes(PromoFlags.HidePromoShadows);
+
+  const justifyContentClass = !showSingleImage ? 'justify-self-start' : '';
+  const firstColumnSize = showSingleImage ? 'lg:col-span-6' : 'lg:col-span-7';
+  const secondColumnSize = showSingleImage ? 'lg:col-span-6' : 'lg:col-span-5';
+
+  return (
+    <section className={`${props.params.styles} py-20`} id={id ? id : undefined}>
+      <div className="container grid grid-cols-1 place-items-center gap-10 lg:grid-cols-12">
+        <div className={`${isPromoReversed} col-span-full ${firstColumnSize} relative w-full`}>
+          {showSingleImage ? (
+            <SingleImageContainer
+              PromoImageOne={props.fields.PromoImageOne}
+              withShapes={withShapes}
+              withShadows={withShadows}
+            />
+          ) : (
+            <MultipleImageContainer
+              PromoImageOne={props.fields.PromoImageOne}
+              PromoImageTwo={props.fields.PromoImageTwo}
+              PromoImageThree={props.fields.PromoImageThree}
+              withShapes={withShapes}
+              withShadows={withShadows}
+            />
+          )}
+        </div>
+
+        <div className={`col-span-full ${secondColumnSize} ${justifyContentClass}`}>
+          <PromoContent {...props} />
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export const WithQuote = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const withQuote = !props?.params?.styles?.includes(PromoFlags.HidePromoQuotes);
