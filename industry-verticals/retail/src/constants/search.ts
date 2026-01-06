@@ -5,6 +5,6 @@ export const HIGHLIGHTED_ARTICLES_RFKID = 'formalux_search_home_highlight_articl
 export const DEFAULT_IMG_URL = 'https://placehold.co/500x300?text=No Image';
 
 // Search widget IDs
-export const PREVIEW_WIDGET_ID = 'formalux_preview_search';
+export const PREVIEW_WIDGET_ID = 'trendmicro_preview_search';
 export const SEARCH_WIDGET_ID = 'formalux_search_results';
 export const HOMEHIGHLIGHTED_WIDGET_ID = 'formalux_search_home_highlight_articles';
