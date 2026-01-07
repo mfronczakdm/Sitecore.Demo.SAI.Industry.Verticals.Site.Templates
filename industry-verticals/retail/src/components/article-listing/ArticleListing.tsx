@@ -61,7 +61,7 @@ export const Default = (props: ArticleListingProps) => {
 
   const filteredArticles = selectedCategory
     ? articles.filter(
-        (article) => article.fields.Category.fields.Category.value === selectedCategory
+        (article) => article.fields.Category?.fields?.Category?.value === selectedCategory
       )
     : articles;
 
@@ -104,10 +104,12 @@ export const Default = (props: ArticleListingProps) => {
 
                 {/* Icons */}
                 <div className="text-foreground-light flex items-center gap-10 text-xs sm:text-sm">
-                  <span className="flex items-center gap-2">
-                    <FontAwesomeIcon icon={faUser as IconProp} />
-                    <ContentSdkText field={article.fields.Author.fields.AuthorName} />
-                  </span>
+                  {article.fields.Author?.fields?.AuthorName && (
+                    <span className="flex items-center gap-2">
+                      <FontAwesomeIcon icon={faUser as IconProp} />
+                      <ContentSdkText field={article.fields.Author.fields.AuthorName} />
+                    </span>
+                  )}
                   <span className="flex items-center gap-2">
                     <FontAwesomeIcon icon={faCalendar as IconProp} />
                     <DateField
@@ -123,10 +125,12 @@ export const Default = (props: ArticleListingProps) => {
                       }
                     />
                   </span>
-                  <span className="flex items-center gap-2">
-                    <FontAwesomeIcon icon={faTag as IconProp} />
-                    <ContentSdkText field={article.fields.Category.fields.Category} />
-                  </span>
+                  {article.fields.Category?.fields?.Category && (
+                    <span className="flex items-center gap-2">
+                      <FontAwesomeIcon icon={faTag as IconProp} />
+                      <ContentSdkText field={article.fields.Category.fields.Category} />
+                    </span>
+                  )}
                 </div>
 
                 {/* Short Description */}
