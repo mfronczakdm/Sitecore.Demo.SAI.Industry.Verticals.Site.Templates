@@ -10,6 +10,7 @@ interface TRPHomeProps extends ComponentProps {
 }
 
 export const Default = (props: TRPHomeProps) => {
+  const { styles, RenderingIdentifier: id } = props.params || {};
   const [keyword, setKeyword] = useState('');
   const [crossReference, setCrossReference] = useState('');
   const [selectedMake, setSelectedMake] = useState('');
@@ -32,7 +33,7 @@ export const Default = (props: TRPHomeProps) => {
   ];
 
   return (
-    <div className="trp-home w-full bg-[#06539c]">
+    <div className={`component trphome ${styles || ''}`.trim()} id={id}>
       {/* Vehicle Selection Component */}
       <section className="bg-linear-to-b from-[#06539c] to-[#06539c] px-4 py-8">
         <div className="container mx-auto max-w-7xl">
@@ -396,6 +397,7 @@ export const Default = (props: TRPHomeProps) => {
 };
 
 export const Personalized = (props: TRPHomeProps) => {
+  const { styles, RenderingIdentifier: id } = props.params || {};
   const [keyword, setKeyword] = useState('');
   const [crossReference, setCrossReference] = useState('');
   const [selectedMake, setSelectedMake] = useState('Kenworth');
@@ -418,7 +420,7 @@ export const Personalized = (props: TRPHomeProps) => {
   ];
 
   return (
-    <div className="trp-home w-full bg-[#06539c]">
+    <div className={`component trphome ${styles || ''}`.trim()} id={id}>
       {/* Vehicle Selection Component */}
       <section className="bg-linear-to-b from-[#06539c] to-[#06539c] px-4 py-8">
         <div className="container mx-auto max-w-7xl">
