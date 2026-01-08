@@ -8,28 +8,41 @@ export const Default = () => {
   const [selectedModel, setSelectedModel] = useState('');
 
   const years = Array.from({ length: 25 }, (_, i) => 2024 - i);
-  const makes = ['Chevrolet', 'Ford', 'Dodge', 'GMC', 'Ram', 'Peterbilt', 'Kenworth', 'Freightliner', 'Volvo', 'Mack'];
+  const makes = [
+    'Chevrolet',
+    'Ford',
+    'Dodge',
+    'GMC',
+    'Ram',
+    'Peterbilt',
+    'Kenworth',
+    'Freightliner',
+    'Volvo',
+    'Mack',
+  ];
   const models = ['Silverado', 'F-150', 'F-250', 'F-350', 'F-450', 'F-550', 'F-650', 'F-750'];
 
   return (
     <div className="trp-home w-full">
       {/* Vehicle Selection Component */}
-      <section className="bg-gradient-to-b from-[#1a1a1a] to-[#2d2d2d] py-12 px-4">
+      <section className="bg-gradient-to-b from-[#1a1a1a] to-[#2d2d2d] px-4 py-12">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Find Parts for Your Vehicle</h2>
-            <p className="text-gray-300 text-lg">Select your vehicle to see compatible parts</p>
+          <div className="mb-8 text-center">
+            <h2 className="mb-2 text-3xl font-bold text-white md:text-4xl">
+              Find Parts for Your Vehicle
+            </h2>
+            <p className="text-lg text-gray-300">Select your vehicle to see compatible parts</p>
           </div>
-          
-          <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+          <div className="mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-lg md:p-8">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               {/* Year Selector */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Year</label>
+                <label className="mb-2 block text-sm font-semibold text-gray-700">Year</label>
                 <select
                   value={selectedYear}
                   onChange={(e) => setSelectedYear(e.target.value)}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-md focus:border-[#e30613] focus:outline-none text-gray-800 bg-white"
+                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 text-gray-800 focus:border-[#e30613] focus:outline-none"
                 >
                   <option value="">Select Year</option>
                   {years.map((year) => (
@@ -42,12 +55,12 @@ export const Default = () => {
 
               {/* Make Selector */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Make</label>
+                <label className="mb-2 block text-sm font-semibold text-gray-700">Make</label>
                 <select
                   value={selectedMake}
                   onChange={(e) => setSelectedMake(e.target.value)}
                   disabled={!selectedYear}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-md focus:border-[#e30613] focus:outline-none text-gray-800 bg-white disabled:bg-gray-100 disabled:cursor-not-allowed"
+                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 text-gray-800 focus:border-[#e30613] focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-100"
                 >
                   <option value="">Select Make</option>
                   {makes.map((make) => (
@@ -60,12 +73,12 @@ export const Default = () => {
 
               {/* Model Selector */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Model</label>
+                <label className="mb-2 block text-sm font-semibold text-gray-700">Model</label>
                 <select
                   value={selectedModel}
                   onChange={(e) => setSelectedModel(e.target.value)}
                   disabled={!selectedMake}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-md focus:border-[#e30613] focus:outline-none text-gray-800 bg-white disabled:bg-gray-100 disabled:cursor-not-allowed"
+                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 text-gray-800 focus:border-[#e30613] focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-100"
                 >
                   <option value="">Select Model</option>
                   {models.map((model) => (
@@ -80,7 +93,7 @@ export const Default = () => {
             <div className="mt-6 text-center">
               <button
                 disabled={!selectedYear || !selectedMake || !selectedModel}
-                className="bg-[#e30613] hover:bg-[#c10510] text-white font-bold py-3 px-8 rounded-md transition-colors duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed text-lg"
+                className="rounded-md bg-[#e30613] px-8 py-3 text-lg font-bold text-white transition-colors duration-200 hover:bg-[#c10510] disabled:cursor-not-allowed disabled:bg-gray-400"
               >
                 Find Parts
               </button>
@@ -90,11 +103,13 @@ export const Default = () => {
       </section>
 
       {/* Browse Parts Section */}
-      <section className="bg-white py-16 px-4">
+      <section className="bg-white px-4 py-16">
         <div className="container mx-auto max-w-7xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">Browse Parts by Category</h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <h2 className="mb-12 text-center text-3xl font-bold text-gray-900 md:text-4xl">
+            Browse Parts by Category
+          </h2>
+
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
             {[
               { name: 'Engine', icon: '🔧' },
               { name: 'Transmission', icon: '⚙️' },
@@ -111,10 +126,10 @@ export const Default = () => {
             ].map((category, index) => (
               <div
                 key={index}
-                className="bg-gray-50 hover:bg-[#e30613] hover:text-white rounded-lg p-6 text-center cursor-pointer transition-all duration-200 transform hover:scale-105 shadow-md"
+                className="transform cursor-pointer rounded-lg bg-gray-50 p-6 text-center shadow-md transition-all duration-200 hover:scale-105 hover:bg-[#e30613] hover:text-white"
               >
-                <div className="text-4xl mb-3">{category.icon}</div>
-                <h3 className="font-semibold text-sm md:text-base">{category.name}</h3>
+                <div className="mb-3 text-4xl">{category.icon}</div>
+                <h3 className="text-sm font-semibold md:text-base">{category.name}</h3>
               </div>
             ))}
           </div>
@@ -122,12 +137,14 @@ export const Default = () => {
       </section>
 
       {/* Featured Products Section */}
-      <section className="bg-gray-100 py-16 px-4">
+      <section className="bg-gray-100 px-4 py-16">
         <div className="container mx-auto max-w-7xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">Featured Products</h2>
-          <p className="text-center text-gray-600 mb-12">Top-rated parts for your vehicle</p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h2 className="mb-4 text-center text-3xl font-bold text-gray-900 md:text-4xl">
+            Featured Products
+          </h2>
+          <p className="mb-12 text-center text-gray-600">Top-rated parts for your vehicle</p>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               { name: 'Heavy Duty Brake Pads', price: '$89.99', image: '🔧', rating: 4.8 },
               { name: 'Premium Air Filter', price: '$24.99', image: '🔍', rating: 4.9 },
@@ -136,19 +153,19 @@ export const Default = () => {
             ].map((product, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-200"
+                className="overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-200 hover:shadow-xl"
               >
-                <div className="bg-gray-200 h-48 flex items-center justify-center text-6xl">
+                <div className="flex h-48 items-center justify-center bg-gray-200 text-6xl">
                   {product.image}
                 </div>
                 <div className="p-5">
-                  <div className="flex items-center mb-2">
-                    <span className="text-yellow-400 text-sm">★★★★★</span>
-                    <span className="text-gray-600 text-sm ml-2">({product.rating})</span>
+                  <div className="mb-2 flex items-center">
+                    <span className="text-sm text-yellow-400">★★★★★</span>
+                    <span className="ml-2 text-sm text-gray-600">({product.rating})</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">{product.name}</h3>
-                  <p className="text-2xl font-bold text-[#e30613] mb-4">{product.price}</p>
-                  <button className="w-full bg-[#e30613] hover:bg-[#c10510] text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200">
+                  <h3 className="mb-2 font-semibold text-gray-900">{product.name}</h3>
+                  <p className="mb-4 text-2xl font-bold text-[#e30613]">{product.price}</p>
+                  <button className="w-full rounded-md bg-[#e30613] px-4 py-2 font-semibold text-white transition-colors duration-200 hover:bg-[#c10510]">
                     Add to Cart
                   </button>
                 </div>
@@ -159,12 +176,16 @@ export const Default = () => {
       </section>
 
       {/* Featured Videos Section */}
-      <section className="bg-white py-16 px-4">
+      <section className="bg-white px-4 py-16">
         <div className="container mx-auto max-w-7xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">Featured Videos</h2>
-          <p className="text-center text-gray-600 mb-12">Learn how to install and maintain your parts</p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <h2 className="mb-4 text-center text-3xl font-bold text-gray-900 md:text-4xl">
+            Featured Videos
+          </h2>
+          <p className="mb-12 text-center text-gray-600">
+            Learn how to install and maintain your parts
+          </p>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {[
               { title: 'How to Replace Brake Pads', duration: '5:32', thumbnail: '🎥' },
               { title: 'Installing a New Air Filter', duration: '3:15', thumbnail: '🎥' },
@@ -172,23 +193,23 @@ export const Default = () => {
             ].map((video, index) => (
               <div
                 key={index}
-                className="bg-gray-900 rounded-lg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity duration-200"
+                className="cursor-pointer overflow-hidden rounded-lg bg-gray-900 transition-opacity duration-200 hover:opacity-90"
               >
-                <div className="relative h-48 bg-gray-800 flex items-center justify-center text-6xl">
+                <div className="relative flex h-48 items-center justify-center bg-gray-800 text-6xl">
                   {video.thumbnail}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-black bg-opacity-50 rounded-full p-4">
-                      <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <div className="bg-opacity-50 rounded-full bg-black p-4">
+                      <svg className="h-12 w-12 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
+                  <div className="bg-opacity-75 absolute right-2 bottom-2 rounded bg-black px-2 py-1 text-sm text-white">
                     {video.duration}
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="text-white font-semibold">{video.title}</h3>
+                  <h3 className="font-semibold text-white">{video.title}</h3>
                 </div>
               </div>
             ))}
@@ -197,54 +218,60 @@ export const Default = () => {
       </section>
 
       {/* Sign Up and Save Section */}
-      <section className="bg-gradient-to-r from-[#e30613] to-[#c10510] py-16 px-4">
+      <section className="bg-gradient-to-r from-[#e30613] to-[#c10510] px-4 py-16">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Sign Up and Save</h2>
-          <p className="text-white text-lg mb-8 opacity-90">
-            Join our loyalty program and get exclusive discounts, early access to sales, and free shipping on orders over $100
+          <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">Sign Up and Save</h2>
+          <p className="mb-8 text-lg text-white opacity-90">
+            Join our loyalty program and get exclusive discounts, early access to sales, and free
+            shipping on orders over $100
           </p>
-          <div className="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+          <div className="mx-auto flex max-w-md flex-col gap-4 md:flex-row">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+              className="flex-1 rounded-md px-4 py-3 text-gray-900 focus:ring-2 focus:ring-white focus:outline-none"
             />
-            <button className="bg-white text-[#e30613] font-bold py-3 px-8 rounded-md hover:bg-gray-100 transition-colors duration-200">
+            <button className="rounded-md bg-white px-8 py-3 font-bold text-[#e30613] transition-colors duration-200 hover:bg-gray-100">
               Sign Up
             </button>
           </div>
-          <p className="text-white text-sm mt-4 opacity-75">
+          <p className="mt-4 text-sm text-white opacity-75">
             By signing up, you agree to receive marketing emails. Unsubscribe at any time.
           </p>
         </div>
       </section>
 
       {/* Why Choose TRP Section */}
-      <section className="bg-white py-16 px-4">
+      <section className="bg-white px-4 py-16">
         <div className="container mx-auto max-w-7xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">Why Choose TRP Parts?</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <h2 className="mb-12 text-center text-3xl font-bold text-gray-900 md:text-4xl">
+            Why Choose TRP Parts?
+          </h2>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {[
               {
                 icon: '🚚',
                 title: 'Free Shipping',
-                description: 'Free shipping on orders over $100. Fast and reliable delivery to your door.',
+                description:
+                  'Free shipping on orders over $100. Fast and reliable delivery to your door.',
               },
               {
                 icon: '✅',
                 title: 'Quality Guaranteed',
-                description: 'All parts are tested and guaranteed to meet or exceed OEM specifications.',
+                description:
+                  'All parts are tested and guaranteed to meet or exceed OEM specifications.',
               },
               {
                 icon: '💳',
                 title: 'Easy Returns',
-                description: '30-day return policy. If you\'re not satisfied, return it for a full refund.',
+                description:
+                  "30-day return policy. If you're not satisfied, return it for a full refund.",
               },
             ].map((feature, index) => (
               <div key={index} className="text-center">
-                <div className="text-5xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                <div className="mb-4 text-5xl">{feature.icon}</div>
+                <h3 className="mb-3 text-xl font-bold text-gray-900">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
               </div>
             ))}
@@ -253,11 +280,13 @@ export const Default = () => {
       </section>
 
       {/* Customer Reviews Section */}
-      <section className="bg-gray-100 py-16 px-4">
+      <section className="bg-gray-100 px-4 py-16">
         <div className="container mx-auto max-w-7xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">What Our Customers Say</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <h2 className="mb-12 text-center text-3xl font-bold text-gray-900 md:text-4xl">
+            What Our Customers Say
+          </h2>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {[
               {
                 name: 'John D.',
@@ -274,17 +303,15 @@ export const Default = () => {
               {
                 name: 'Mike R.',
                 rating: 5,
-                review: 'Best prices I\'ve found online. Will definitely order again.',
+                review: "Best prices I've found online. Will definitely order again.",
                 location: 'Florida',
               },
             ].map((review, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6">
-                <div className="flex items-center mb-4">
-                  <div className="text-yellow-400 text-lg">
-                    {'★'.repeat(review.rating)}
-                  </div>
+              <div key={index} className="rounded-lg bg-white p-6 shadow-md">
+                <div className="mb-4 flex items-center">
+                  <div className="text-lg text-yellow-400">{'★'.repeat(review.rating)}</div>
                 </div>
-                <p className="text-gray-700 mb-4 italic">"{review.review}"</p>
+                <p className="mb-4 text-gray-700 italic">&quot;{review.review}&quot;</p>
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-semibold text-gray-900">{review.name}</p>
@@ -299,4 +326,3 @@ export const Default = () => {
     </div>
   );
 };
-
