@@ -428,7 +428,7 @@ export const Personalized = (props: TRPHomeProps) => {
             {/* Keyword, Part Number or VMRS code */}
             <div>
               <label className="mb-2 block text-sm font-semibold text-white">
-                Keyword, Part Number or VMRS code
+                Keyword, Part Number or VIN
               </label>
               <div className="relative">
                 <input
