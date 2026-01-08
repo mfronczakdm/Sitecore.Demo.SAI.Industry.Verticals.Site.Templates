@@ -23,7 +23,7 @@ export const Default = () => {
   const models = ['Silverado', 'F-150', 'F-250', 'F-350', 'F-450', 'F-550', 'F-650', 'F-750'];
 
   return (
-    <div className="trp-home w-full">
+    <div className="trp-home w-full bg-[#06539c]">
       {/* Vehicle Selection Component */}
       <section className="bg-gradient-to-b from-[#1a1a1a] to-[#2d2d2d] px-4 py-12">
         <div className="container mx-auto max-w-7xl">
@@ -42,7 +42,7 @@ export const Default = () => {
                 <select
                   value={selectedYear}
                   onChange={(e) => setSelectedYear(e.target.value)}
-                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 text-gray-800 focus:border-[#e30613] focus:outline-none"
+                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 text-gray-800 focus:border-[#e01e26] focus:outline-none"
                 >
                   <option value="">Select Year</option>
                   {years.map((year) => (
@@ -60,7 +60,7 @@ export const Default = () => {
                   value={selectedMake}
                   onChange={(e) => setSelectedMake(e.target.value)}
                   disabled={!selectedYear}
-                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 text-gray-800 focus:border-[#e30613] focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-100"
+                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 text-gray-800 focus:border-[#e01e26] focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-100"
                 >
                   <option value="">Select Make</option>
                   {makes.map((make) => (
@@ -78,7 +78,7 @@ export const Default = () => {
                   value={selectedModel}
                   onChange={(e) => setSelectedModel(e.target.value)}
                   disabled={!selectedMake}
-                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 text-gray-800 focus:border-[#e30613] focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-100"
+                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 text-gray-800 focus:border-[#e01e26] focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-100"
                 >
                   <option value="">Select Model</option>
                   {models.map((model) => (
@@ -93,7 +93,7 @@ export const Default = () => {
             <div className="mt-6 text-center">
               <button
                 disabled={!selectedYear || !selectedMake || !selectedModel}
-                className="rounded-md bg-[#e30613] px-8 py-3 text-lg font-bold text-white transition-colors duration-200 hover:bg-[#c10510] disabled:cursor-not-allowed disabled:bg-gray-400"
+                className="rounded-md bg-[#e01e26] px-8 py-3 text-lg font-bold text-white transition-colors duration-200 hover:bg-[#c01a20] disabled:cursor-not-allowed disabled:bg-gray-400"
               >
                 Find Parts
               </button>
@@ -126,7 +126,7 @@ export const Default = () => {
             ].map((category, index) => (
               <div
                 key={index}
-                className="transform cursor-pointer rounded-lg bg-gray-50 p-6 text-center shadow-md transition-all duration-200 hover:scale-105 hover:bg-[#e30613] hover:text-white"
+                className="transform cursor-pointer rounded-lg bg-gray-50 p-6 text-center shadow-md transition-all duration-200 hover:scale-105 hover:bg-[#e01e26] hover:text-white"
               >
                 <div className="mb-3 text-4xl">{category.icon}</div>
                 <h3 className="text-sm font-semibold md:text-base">{category.name}</h3>
@@ -164,8 +164,8 @@ export const Default = () => {
                     <span className="ml-2 text-sm text-gray-600">({product.rating})</span>
                   </div>
                   <h3 className="mb-2 font-semibold text-gray-900">{product.name}</h3>
-                  <p className="mb-4 text-2xl font-bold text-[#e30613]">{product.price}</p>
-                  <button className="w-full rounded-md bg-[#e30613] px-4 py-2 font-semibold text-white transition-colors duration-200 hover:bg-[#c10510]">
+                  <p className="mb-4 text-2xl font-bold text-[#e01e26]">{product.price}</p>
+                  <button className="w-full rounded-md bg-[#e01e26] px-4 py-2 font-semibold text-white transition-colors duration-200 hover:bg-[#c01a20]">
                     Add to Cart
                   </button>
                 </div>
@@ -218,7 +218,7 @@ export const Default = () => {
       </section>
 
       {/* Sign Up and Save Section */}
-      <section className="bg-gradient-to-r from-[#e30613] to-[#c10510] px-4 py-16">
+      <section className="bg-gradient-to-r from-[#e01e26] to-[#c01a20] px-4 py-16">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">Sign Up and Save</h2>
           <p className="mb-8 text-lg text-white opacity-90">
@@ -231,7 +231,7 @@ export const Default = () => {
               placeholder="Enter your email"
               className="flex-1 rounded-md px-4 py-3 text-gray-900 focus:ring-2 focus:ring-white focus:outline-none"
             />
-            <button className="rounded-md bg-white px-8 py-3 font-bold text-[#e30613] transition-colors duration-200 hover:bg-gray-100">
+            <button className="rounded-md bg-white px-8 py-3 font-bold text-[#e01e26] transition-colors duration-200 hover:bg-gray-100">
               Sign Up
             </button>
           </div>
