@@ -3,8 +3,13 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ComponentProps } from 'lib/component-props';
 
-export const Default = () => {
+interface TRPHomeProps extends ComponentProps {
+  fields?: Record<string, unknown>;
+}
+
+export const Default = (props: TRPHomeProps) => {
   const [keyword, setKeyword] = useState('');
   const [crossReference, setCrossReference] = useState('');
   const [selectedMake, setSelectedMake] = useState('');
@@ -390,7 +395,7 @@ export const Default = () => {
   );
 };
 
-export const Personalized = () => {
+export const Personalized = (props: TRPHomeProps) => {
   const [keyword, setKeyword] = useState('');
   const [crossReference, setCrossReference] = useState('');
   const [selectedMake, setSelectedMake] = useState('Kenworth');
