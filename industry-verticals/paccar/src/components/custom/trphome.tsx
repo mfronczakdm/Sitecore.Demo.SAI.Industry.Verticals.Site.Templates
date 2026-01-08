@@ -41,14 +41,14 @@ export const Default = (props: TRPHomeProps) => {
             {/* Keyword, Part Number or VMRS code */}
             <div>
               <label className="mb-2 block text-sm font-semibold text-white">
-                Keyword, Part Number or VMRS code
+                Keyword, or Part Number
               </label>
               <div className="relative">
                 <input
                   type="text"
                   value={keyword}
                   onChange={(e) => setKeyword(e.target.value)}
-                  placeholder="Keyword, part number or VMRS"
+                  placeholder="Keyword, or Part Number"
                   className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 pr-10 text-gray-800 focus:border-[#e01e26] focus:outline-none"
                 />
                 <svg
@@ -435,7 +435,7 @@ export const Personalized = (props: TRPHomeProps) => {
                   type="text"
                   value={keyword}
                   onChange={(e) => setKeyword(e.target.value)}
-                  placeholder="Keyword, part number or VMRS"
+                  placeholder="Keyword, part number or VIN"
                   className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 pr-10 text-gray-800 focus:border-[#e01e26] focus:outline-none"
                 />
                 <svg
