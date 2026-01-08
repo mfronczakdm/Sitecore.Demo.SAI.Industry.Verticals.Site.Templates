@@ -33,7 +33,7 @@ export const Default = (props: TRPHomeProps) => {
   ];
 
   return (
-    <div className={`component trphome ${styles || ''}`.trim()} id={id}>
+    <div className={`component trphome w-full ${styles || ''}`.trim()} id={id}>
       {/* Vehicle Selection Component */}
       <section className="bg-linear-to-b from-[#06539c] to-[#06539c] px-4 py-8">
         <div className="container mx-auto max-w-7xl">
@@ -420,7 +420,7 @@ export const Personalized = (props: TRPHomeProps) => {
   ];
 
   return (
-    <div className={`component trphome ${styles || ''}`.trim()} id={id}>
+    <div className={`component trphome w-full ${styles || ''}`.trim()} id={id}>
       {/* Vehicle Selection Component */}
       <section className="bg-linear-to-b from-[#06539c] to-[#06539c] px-4 py-8">
         <div className="container mx-auto max-w-7xl">
