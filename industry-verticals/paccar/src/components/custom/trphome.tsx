@@ -25,7 +25,7 @@ export const Default = () => {
   return (
     <div className="trp-home w-full bg-[#06539c]">
       {/* Vehicle Selection Component */}
-      <section className="bg-gradient-to-b from-[#1a1a1a] to-[#2d2d2d] px-4 py-12">
+      <section className="bg-linear-to-b from-[#1a1a1a] to-[#2d2d2d] px-4 py-12">
         <div className="container mx-auto max-w-7xl">
           <div className="mb-8 text-center">
             <h2 className="mb-2 text-3xl font-bold text-white md:text-4xl">
@@ -218,7 +218,7 @@ export const Default = () => {
       </section>
 
       {/* Sign Up and Save Section */}
-      <section className="bg-gradient-to-r from-[#e01e26] to-[#c01a20] px-4 py-16">
+      <section className="bg-linear-to-r from-[#e01e26] to-[#c01a20] px-4 py-16">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">Sign Up and Save</h2>
           <p className="mb-8 text-lg text-white opacity-90">
