@@ -44,12 +44,27 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'www.trpparts.com*',
+        port: '',
+      },
+      {
+        protocol: 'https',
         hostname: 'retail-verticals.sitecoresandbox.cloud',
         port: '',
       },
       {
         protocol: 'https',
         hostname: 'placehold.co',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.trpparts.com',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'trpparts.com',
         port: '',
       },
     ],

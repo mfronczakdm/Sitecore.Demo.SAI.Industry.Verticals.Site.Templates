@@ -1,102 +1,133 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 export const Default = () => {
-  const [selectedYear, setSelectedYear] = useState('');
+  const [keyword, setKeyword] = useState('');
+  const [crossReference, setCrossReference] = useState('');
   const [selectedMake, setSelectedMake] = useState('');
-  const [selectedModel, setSelectedModel] = useState('');
+  const [vin, setVin] = useState('');
 
-  const years = Array.from({ length: 25 }, (_, i) => 2024 - i);
   const makes = [
-    'Chevrolet',
-    'Ford',
-    'Dodge',
-    'GMC',
-    'Ram',
-    'Peterbilt',
-    'Kenworth',
+    'Select Make',
+    'Autocar',
+    'CATERPILLAR',
     'Freightliner',
-    'Volvo',
+    'International',
+    'ISUZU',
+    'Kenworth',
     'Mack',
+    'NA',
+    'Peterbilt',
+    'Sterling',
+    'Volvo',
+    'Western Star',
   ];
-  const models = ['Silverado', 'F-150', 'F-250', 'F-350', 'F-450', 'F-550', 'F-650', 'F-750'];
 
   return (
     <div className="trp-home w-full bg-[#06539c]">
       {/* Vehicle Selection Component */}
-      <section className="bg-linear-to-b from-[#1a1a1a] to-[#2d2d2d] px-4 py-12">
+      <section className="bg-linear-to-b from-[#06539c] to-[#06539c] px-4 py-8">
         <div className="container mx-auto max-w-7xl">
-          <div className="mb-8 text-center">
-            <h2 className="mb-2 text-3xl font-bold text-white md:text-4xl">
-              Find Parts for Your Vehicle
-            </h2>
-            <p className="text-lg text-gray-300">Select your vehicle to see compatible parts</p>
-          </div>
-
-          <div className="mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-lg md:p-8">
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-              {/* Year Selector */}
-              <div>
-                <label className="mb-2 block text-sm font-semibold text-gray-700">Year</label>
-                <select
-                  value={selectedYear}
-                  onChange={(e) => setSelectedYear(e.target.value)}
-                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 text-gray-800 focus:border-[#e01e26] focus:outline-none"
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+            {/* Keyword, Part Number or VMRS code */}
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-white">
+                Keyword, Part Number or VMRS code
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  value={keyword}
+                  onChange={(e) => setKeyword(e.target.value)}
+                  placeholder="Keyword, part number or VMRS"
+                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 pr-10 text-gray-800 focus:border-[#e01e26] focus:outline-none"
+                />
+                <svg
+                  className="absolute top-1/2 right-3 h-5 w-5 -translate-y-1/2 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  <option value="">Select Year</option>
-                  {years.map((year) => (
-                    <option key={year} value={year}>
-                      {year}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Make Selector */}
-              <div>
-                <label className="mb-2 block text-sm font-semibold text-gray-700">Make</label>
-                <select
-                  value={selectedMake}
-                  onChange={(e) => setSelectedMake(e.target.value)}
-                  disabled={!selectedYear}
-                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 text-gray-800 focus:border-[#e01e26] focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-100"
-                >
-                  <option value="">Select Make</option>
-                  {makes.map((make) => (
-                    <option key={make} value={make}>
-                      {make}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Model Selector */}
-              <div>
-                <label className="mb-2 block text-sm font-semibold text-gray-700">Model</label>
-                <select
-                  value={selectedModel}
-                  onChange={(e) => setSelectedModel(e.target.value)}
-                  disabled={!selectedMake}
-                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 text-gray-800 focus:border-[#e01e26] focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-100"
-                >
-                  <option value="">Select Model</option>
-                  {models.map((model) => (
-                    <option key={model} value={model}>
-                      {model}
-                    </option>
-                  ))}
-                </select>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
               </div>
             </div>
 
-            <div className="mt-6 text-center">
-              <button
-                disabled={!selectedYear || !selectedMake || !selectedModel}
-                className="rounded-md bg-[#e01e26] px-8 py-3 text-lg font-bold text-white transition-colors duration-200 hover:bg-[#c01a20] disabled:cursor-not-allowed disabled:bg-gray-400"
+            {/* Cross Reference */}
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-white">Cross Reference</label>
+              <div className="relative">
+                <input
+                  type="text"
+                  value={crossReference}
+                  onChange={(e) => setCrossReference(e.target.value)}
+                  placeholder="Cross Reference"
+                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 pr-10 text-gray-800 focus:border-[#e01e26] focus:outline-none"
+                />
+                <svg
+                  className="absolute top-1/2 right-3 h-5 w-5 -translate-y-1/2 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            {/* Make/Model */}
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-white">Make/Model</label>
+              <select
+                value={selectedMake}
+                onChange={(e) => setSelectedMake(e.target.value)}
+                className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 text-gray-800 focus:border-[#e01e26] focus:outline-none"
               >
-                Find Parts
-              </button>
+                {makes.map((make) => (
+                  <option key={make} value={make === 'Select Make' ? '' : make}>
+                    {make}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* VIN */}
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-white">VIN</label>
+              <div className="relative">
+                <input
+                  type="text"
+                  value={vin}
+                  onChange={(e) => setVin(e.target.value)}
+                  placeholder="Enter VIN"
+                  className="w-full rounded-md border-2 border-gray-300 bg-white px-4 py-3 pr-10 text-gray-800 focus:border-[#e01e26] focus:outline-none"
+                />
+                <svg
+                  className="absolute top-1/2 right-3 h-5 w-5 -translate-y-1/2 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -146,17 +177,48 @@ export const Default = () => {
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { name: 'Heavy Duty Brake Pads', price: '$89.99', image: '🔧', rating: 4.8 },
-              { name: 'Premium Air Filter', price: '$24.99', image: '🔍', rating: 4.9 },
-              { name: 'Performance Exhaust System', price: '$349.99', image: '💨', rating: 4.7 },
-              { name: 'Heavy Duty Battery', price: '$179.99', image: '⚡', rating: 4.8 },
+              {
+                name: 'Heavy Duty Brake Pads',
+                price: '$89.99',
+                imageUrl:
+                  'https://retail-verticals.sitecoresandbox.cloud/api/public/content/b51a0d1c650e456ea990644171e61c4c?v=c7faf6f4',
+                rating: 4.8,
+              },
+              {
+                name: 'Premium Air Filter',
+                price: '$24.99',
+                imageUrl:
+                  'https://retail-verticals.sitecoresandbox.cloud/api/public/content/952f997256ce4cbbb4777c9288b7ed14?v=a5049569',
+                rating: 4.9,
+              },
+              {
+                name: 'Performance Exhaust',
+                price: '$349.99',
+                imageUrl:
+                  'https://retail-verticals.sitecoresandbox.cloud/api/public/content/9f7034647fa04972816503da8ef46c77?v=2dbfd0ed',
+                rating: 4.7,
+              },
+              {
+                name: 'Heavy Duty Battery',
+                price: '$179.99',
+                imageUrl:
+                  'https://retail-verticals.sitecoresandbox.cloud/api/public/content/5487f0b1dd504a7693caab8a486f8027?v=55098426',
+                rating: 4.8,
+              },
             ].map((product, index) => (
               <div
                 key={index}
                 className="overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-200 hover:shadow-xl"
               >
-                <div className="flex h-48 items-center justify-center bg-gray-200 text-6xl">
-                  {product.image}
+                <div className="relative h-48 w-full bg-gray-200">
+                  <Image
+                    src={product.imageUrl}
+                    alt={product.name}
+                    fill
+                    className="object-cover"
+                    unoptimized
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
                 </div>
                 <div className="p-5">
                   <div className="mb-2 flex items-center">
