@@ -586,7 +586,7 @@ export const Personalized = (props: TRPHomeProps) => {
           <h2 className="mb-4 text-center text-3xl font-bold text-gray-900 md:text-4xl">
             Featured Products
           </h2>
-          <p className="mb-12 text-center text-gray-600">Top-rated parts for your vehicle</p>
+          <p className="mb-12 text-center text-gray-600">Top-rated parts for your vehicle David</p>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
@@ -657,14 +657,18 @@ export const Personalized = (props: TRPHomeProps) => {
             Featured Videos
           </h2>
           <p className="mb-12 text-center text-gray-600">
-            Learn how to install and maintain your parts
+            Learn how to install and maintain your parts when on the road
           </p>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {[
-              { title: 'How to Replace Brake Pads', duration: '5:32', thumbnail: '🎥' },
-              { title: 'Installing a New Air Filter', duration: '3:15', thumbnail: '🎥' },
-              { title: 'Battery Maintenance Tips', duration: '4:48', thumbnail: '🎥' },
+              { title: 'Maintenance while on the road', duration: '5:32', thumbnail: '🎥' },
+              { title: 'Getting the best gas mileage', duration: '3:15', thumbnail: '🎥' },
+              {
+                title: 'Battery Maintenance Tips For Those Cold Nights',
+                duration: '4:48',
+                thumbnail: '🎥',
+              },
             ].map((video, index) => (
               <div
                 key={index}
@@ -696,7 +700,7 @@ export const Personalized = (props: TRPHomeProps) => {
       <section className="bg-gray-100 px-4 py-16">
         <div className="container mx-auto max-w-7xl">
           <h2 className="mb-12 text-center text-3xl font-bold text-gray-900 md:text-4xl">
-            What Our Customers Say
+            Hear From Our Community
           </h2>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
